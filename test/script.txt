@@ -1,0 +1,53 @@
+-- model definition
+{ 
+>	50 71 32 p q   
+	71 50 32 q r  
+>	32 32   r
+}
+
+? p & q & r | s
+: s | p & q & r
+
+-- These formulas are not equivalent (note that first allows
+--   (p) (!q) (!q) (!q)...
+--
+-- while second doesn't allow q to be false forever.
+--
+-- 3.5 #1 a:
+? G(p -> X(!q W (q & !r U t)))
+: G(p -> X(!q U (q & !r W t)))
+
+-- why are these different?
+? G(p -> X(!q W (q & !r U t)))
+:  G(!p | (p & (!q U (q & (t R (!r | t))))))
+
+? G (p | q) : G (p | r)
+  
+? G p | q : G(p | q)
+
+
+-- CTL 
+--AF (p & !p)	
+
+-- CTL*
+--AF (p | F q)
+
+-- LTL
+-- r R (q | r)	
+--q W r				
+
+-- compare LTL formulas
+-- ? r : !r		
+
+-- Compare CTL formulas (should cause an error)
+--? AF (p | !p) : r
+
+
+
+
+-- F (p U (q & r)) : F s
+--? (p U (q & p)) & F r :  (p U (q & p)) & F !r
+-- ? p U (q & p) : q R p --(p & F q)
+--? F !r : F r
+--? F r : F !r
+

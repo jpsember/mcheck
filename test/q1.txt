@@ -1,0 +1,41 @@
+-- 3.6 #1
+--
+-- Figure 3.11 model definition:
+--
+{ 
+-- <state num>   { <transition state num> * } { <prop. var> }* 
+0		0 2 5		n1 n1 r0
+1		1 6 9		n1 n2 r1
+2		2 3 10	n1 t2 r0
+3		0 3 4		n1 c2 r0
+4		4 5			t1 c2 r0
+5		5 10 11	t1 n2 r0
+6		6 12 13	n1 t2 r1
+7		6 7			c1 t2 r1
+8		1 7 8		c1 n2 r1
+9		8 9 13	t1 n2 r1
+10	10 14		t1 t2 r0
+11	1 11 14	c1 n2 r0
+12	0 12 15	n1 c2 r1
+13	13 15		t1 t2 r1
+14	6 14		c1 t2 r0
+15	5 15		t1 c2 r1
+}
+
+-- Specifications
+--
+
+-- Safety
+AG !(c1 & c2)
+
+-- Liveness
+AG (t1 -> AF(c1))
+AG (t2 -> AF(c2))
+
+-- Nonblocking
+AG (n1 -> EX(t1))
+AG (n2 -> EX(t2))
+
+-- No strict sequencing
+AG (EF (c1 & E[c1 U (!c1 & E[ !c2 U c1])]))
+AG (EF (c2 & E[c2 U (!c2 & E[ !c1 U c2])]))

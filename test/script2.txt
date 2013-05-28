@@ -1,0 +1,37 @@
+-- q U ! ( ( ! (s & s)))
+--F q
+--p R q
+--AG(p|q|r->EFEGr)
+--G p
+--AG q
+--EG!r
+--EF q
+--AX !p
+--p W q
+--a -> b
+--p|q
+--A[p U r]
+--T
+--A[p U r]
+--AG(p|q|r->EFEGr)
+--!AX(q & r)
+--p&q
+--T
+--!r
+--T
+--EX (q & r)
+--!AX(q&r)
+--!EF(p&r)
+--EGr
+--AFr
+--E[(p&q)Ur]
+--A[p U r]
+--A[q U (s & s)]
+--AG(p|q|r->EFEGr)
+--A[q U (s -> s)]
+--p -> q
+--p->q
+--AG(p|q|r->EFEGr)
+--r -> p
+--r -> EF EG r
+--E[p U q]
